@@ -40,7 +40,7 @@ class Basura {
       String nombre = este.getName();
       if (nombre != null) {
         if (nombre.equals("basura") ) {
-          if (este.getX() > width-150 && este.getY() > height-200 || este.getY() >= height-30 ) {
+          if (este.getX() > width-150 && este.getY() > height-200 || este.getY() >= height-35 ) {
             mundo.remove(este);
           }
         }
