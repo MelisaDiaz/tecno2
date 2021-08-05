@@ -44,3 +44,13 @@ void draw() {
 //   basura.dispararse(mundo);
 // }
 //}
+
+void keyPressed(){
+    if (keyCode==LEFT) {  
+      posXban-=5;
+      bandeja.setPosition(posXban, posYban); //Mover a la izquierda
+    } else if (keyCode==RIGHT) { 
+      posXban+=5;
+      bandeja.setPosition(posXban+10, posYban);//Mover a la derecha
+    }
+}
