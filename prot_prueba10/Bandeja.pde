@@ -12,10 +12,10 @@ class Bandeja {
     bandeja = new FPoly();
     x=width/4;
     y=height;
-    bandeja.vertex(width/4-50, height-80);
-    bandeja.vertex(width/4+100-50, height-80+20);
-    bandeja.vertex(width/4+100-50, height-20);
-    bandeja.vertex(width/4-50, height-20);
+    bandeja.vertex(x-50, y-80);
+    bandeja.vertex(x+50, y-60);
+    bandeja.vertex(x+50, y-20);
+    bandeja.vertex(x-50, y-20);
     bandeja.setRestitution(0);
     bandeja.setFriction(6);
     bandeja.setDamping (0.5);
