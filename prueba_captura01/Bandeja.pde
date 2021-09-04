@@ -9,9 +9,13 @@ class Bandeja {
   //Constructor
   Bandeja() {
     bandeja = new FPoly();
-    x=width/4;
+    x= width/4;
     y=height;
-    bandeja.setPosition(x, y);
+  }
+
+  //Funcionalidades
+  void dibujarBandeja(float posx) {
+    bandeja.setPosition(posx, y);
     bandeja.vertex(-50, -80);
     bandeja.vertex(50, -60);
     bandeja.vertex(50, -20);
@@ -20,11 +24,8 @@ class Bandeja {
     bandeja.setFriction(6);
     bandeja.setRotatable (false);
     bandeja.setDamping (0.5);
-    //mundo.add(bandeja);
     //bandeja.attachImage(loadImage("trampolin2.png")); //Cargar imagen
   }
-
-  //Funcionalidades
 
   FPoly getBandeja() { //Devuelve bandeja
     return bandeja;

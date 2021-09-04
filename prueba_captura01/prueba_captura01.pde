@@ -25,7 +25,7 @@ int found;
 PVector poseOrientation = new PVector();
 PVector cursorPosition = new PVector();
 
-float speed = 50;
+float speed = 30;
 
 
 void setup() {
@@ -54,10 +54,6 @@ void setup() {
   bandeja=new Bandeja(); //Instancia de Bandeja
   mundo.add(bandeja.getBandeja());
 
-  cadena = new FMouseJoint(bandeja.bandeja, width / 2, height / 2);
-  cadena.setFrequency(400000);
-  mundo.add(cadena);
-
   oscP5 = new OscP5(this, 8338);
   oscP5.plug(this, "found", "/found");
   oscP5.plug(this, "poseOrientation", "/pose/orientation");
@@ -75,10 +71,14 @@ void draw() {
     if (found > 0) {
       cursorPosition.x += speed * poseOrientation.y;
       cursorPosition.y += speed * poseOrientation.x;
-      cursorPosition.x = constrain(cursorPosition.x, 0, width);
-      cursorPosition.y = constrain(cursorPosition.y, 0, height);
+      cursorPosition.x = constrain(cursorPosition.x, 0, width-100);
+      cursorPosition.y = constrain(cursorPosition.y, 0, height-100);
+      
+      bandeja.dibujarBandeja(map(cursorPosition.x, 0, width, 0, width));
     }
-    cadena.setTarget(cursorPosition.x, cursorPosition.y);
+    //cadena.setTarget(cursorPosition.x, cursorPosition.y);
+    //println(cursorPosition.x);
+    //bandeja.dibujarBandeja(map(cursorPosition.x, 0, width, 0, width));
 
     int pos=int(random(0, 5.9));
     if (!hayBasura) { //Si no hay basura agrega una
@@ -108,6 +108,20 @@ void draw() {
   case 3://Pantalla ganar
     pantalla3.mostrarPantalla();
     break;
+  }
+}
+
+public void found(int i) {
+  found = i;
+}
+
+public void poseOrientation(float x, float y, float z) {
+  poseOrientation.set(x, y, z);
+}
+
+// all other OSC messages end up here
+void oscEvent(OscMessage m) {
+  if (m.isPlugged() == false) {
   }
 }
 
