@@ -165,9 +165,6 @@ void borrarBasura() {
           mundo.remove(este); //...y se borra del mundo
           hayBasura=false;
         }
-
-        if (nombre.equals("botella-agua")) {
-        }
       }
 
       //si son cosas no reciclables...
@@ -195,7 +192,7 @@ void contactStarted(FContact contacto)  //Comienzo contacto
   {
     if (body1.getName() != null && body2.getName() != null)
     {
-      if (body1.getName()=="bandeja" || body1.getName()=="bandeja") {
+      if (body1.getName()=="bandeja") {
         sonidoRebote.trigger();
       }
     }
