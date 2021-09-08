@@ -72,6 +72,15 @@ void setup() {
   mundo.setGravity(0, 400);
 
   bandeja=new Bandeja(); //Instancia de Bandeja
+  //if (found > 0) {
+  //  cursorPosition.x += speed * poseOrientation.y;
+  //  cursorPosition.y += speed * poseOrientation.x;
+  //  cursorPosition.x = constrain(cursorPosition.x, 0, width-100);
+  //  cursorPosition.y = constrain(cursorPosition.y, 0, height-100);
+
+  //  bandeja.dibujarBandeja(map(cursorPosition.x, 0, width, 0, width));
+  //}
+  bandeja.dibujarBandeja(width/4);
   mundo.add(bandeja.getBandeja());
 
   oscP5 = new OscP5(this, 8338);
@@ -87,16 +96,15 @@ void draw() {
   case 1://Juego
     image(fondo, 0, 0);
     image(camion, -10, 150, 190, 484);
-    
-    if (found > 0) {
-      cursorPosition.x += speed * poseOrientation.y;
-      cursorPosition.y += speed * poseOrientation.x;
-      cursorPosition.x = constrain(cursorPosition.x, 0, width-100);
-      cursorPosition.y = constrain(cursorPosition.y, 0, height-100);
-      
-      bandeja.dibujarBandeja(map(cursorPosition.x, 0, width, 0, width));
-    }
-    
+
+    //if (found > 0) {
+    //  cursorPosition.x += speed * poseOrientation.y;
+    //  cursorPosition.y += speed * poseOrientation.x;
+    //  cursorPosition.x = constrain(cursorPosition.x, 0, width-100);
+    //  cursorPosition.y = constrain(cursorPosition.y, 0, height-100);
+
+    //  bandeja.dibujarBandeja(map(cursorPosition.x, 0, width, 0, width));
+    //}
     int pos=int(random(0, 5.9));
     if (!hayBasura) { //Si no hay basura agrega una
       if (frameCount%200==0) {
@@ -109,7 +117,7 @@ void draw() {
     cont.imprimirVidas();//Imprime vidas
 
     borrarBasura();
-    image(tachoDeBasura, width-180, height-200);
+    image(tachoDeBasura, width-180, height-160);
 
     for (int i=0; i<=3; i++) {
       if (arregloBasurasTacho.getBasura(i).getEnTacho()) {
