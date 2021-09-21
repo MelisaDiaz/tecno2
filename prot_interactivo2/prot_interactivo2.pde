@@ -19,6 +19,7 @@ AudioSample sonidoRebote;
 AudioPlayer sonidoGanar;
 AudioPlayer sonidoPerder;
 AudioSample sonidoMal;
+AudioSample sonidoPunto;
 
 Bandeja bandeja;
 Pantalla pantalla0, pantalla2, pantalla3;
@@ -26,6 +27,7 @@ Contador cont;
 
 ArregloBasuras arregloBasuras;
 ArregloBasurasTacho arregloBasurasTacho;
+Vida vidas;
 
 //Estados: 0=pantalla inicial, 1=juego, 2=pantalla perder, 3=pantalla ganar 
 int estado=0; 
@@ -54,7 +56,8 @@ void setup() {
   //sonidoFondo.loop();
   sonidoGanar = minim.loadFile("ganar.mp3", 2048);
   sonidoPerder = minim.loadFile("perder.mp3", 2048);
-  sonidoMal = minim.loadSample("mal.mp3");
+  sonidoMal = minim.loadSample("mal.mp3", 512);
+  sonidoPunto = minim.loadSample("punto.mp3", 512);
 
   //Parametros: Texto boton, titulo pantalla, ancho boton
   pantalla0=new Pantalla("Jugar", 130, "fondo1.png", width-200, height-130); 
@@ -71,6 +74,7 @@ void setup() {
   cont=new Contador(); //Instancia de Contador
   arregloBasuras = new ArregloBasuras();
   arregloBasurasTacho = new ArregloBasurasTacho();
+  vidas = new Vida();
 
   mundo = new FWorld();
   mundo.setEdges();
@@ -118,7 +122,8 @@ void draw() {
     }
 
     cont.imprimirGanadas();//Imprime ganadas
-    cont.imprimirVidas();//Imprime vidas
+    //cont.imprimirVidas();//Imprime vidas
+    vidas.dibujarVidas();
 
     borrarBasura();
     image(tachoDeBasura, width-180, height-160);
@@ -129,7 +134,7 @@ void draw() {
       }
     }
 
-    if (cont.perder()) {
+    if (vidas.cant == 0) {
       estado=2;
       arregloBasurasTacho.reiniciarEnTacho();
     } else if (cont.ganar()) {
@@ -141,11 +146,14 @@ void draw() {
     break;
   case 2://Pantalla perder
     pantalla2.mostrarPantalla();
+    cont.reiniciarGanadas();
+    vidas.reiniciarVidas();
     sonidoFondo.pause();
     sonidoPerder.play();
     break;
   case 3://Pantalla ganar
     pantalla3.mostrarPantalla();
+    vidas.reiniciarVidas();
     sonidoFondo.pause();
     sonidoGanar.play();
     break;
@@ -202,6 +210,7 @@ void borrarBasura() {
 
         if (este.getX() > width-150 && este.getY() > height-200) { //Si toca el tacho de basura...
           cont.actualizarGanadas(); //...suma un punto...
+          sonidoPunto.trigger();
           mundo.remove(este); //...y se borra del mundo
           hayBasura=false;
           if (nombre.equals("botella-agua")) {
@@ -215,7 +224,7 @@ void borrarBasura() {
           }
         }
         if (este.getY() >= height-45 || este.getX() < 40) { //Si toca el piso...
-          cont.actualizarVidas(); //...resta una vida...
+          vidas.cant--; //...resta una vida...
           sonidoMal.trigger();
           mundo.remove(este); //...y se borra del mundo
           hayBasura=false;
@@ -229,7 +238,7 @@ void borrarBasura() {
           hayBasura=false;
         }
         if (este.getX() > width-150 && este.getY() > height-200) { //Si toca el tacho de basura...
-          cont.actualizarVidas(); //...resta una vida...
+          vidas.cant--; //...resta una vida...
           sonidoMal.trigger();
           mundo.remove(este); //...y se borra del mundo
           hayBasura=false;

@@ -10,7 +10,7 @@ class ArregloBasuras {
     arregloBasuras[0]=new Basura("botella-agua",0.1);
     arregloBasuras[1]=new Basura("botella-cerveza",0.2);
     arregloBasuras[2]=new Basura("banana",0.8);
-    arregloBasuras[3]=new Basura("diario",1);
+    arregloBasuras[3]=new Basura("diario",0.9);
     arregloBasuras[4]=new Basura("naranja",0.9);
     arregloBasuras[5]=new Basura("lata",0.3);
   }

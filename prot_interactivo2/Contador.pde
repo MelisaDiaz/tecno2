@@ -37,12 +37,13 @@ class Contador {
 
   void imprimirGanadas() { //Imprimir ganadas
     pushStyle();  
-    fill(0); //Cuadro
-    noStroke();
-    rect(width-130, 20, 100, 40, 10);
-    fill(#FFFF33); //Texto
-    textSize(20);
-    text("Puntos: "+ ganadas, width-120, 47);
+    fill(#41980c); //Cuadro
+    stroke(255);
+    rectMode(CENTER);
+    rect(width-100, 70, 130, 45, 10);
+    fill(255); //Texto
+    textSize(28);
+    text("Puntos: "+ ganadas, width-150, 80);
     popStyle();
   }
 
@@ -55,5 +56,9 @@ class Contador {
     textSize(20);
     text("Vidas x "+ vidas, width-120, 93 );
     popStyle();
+  }
+  
+  void reiniciarGanadas(){
+    ganadas = 0;
   }
 }

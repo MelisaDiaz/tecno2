@@ -44,6 +44,7 @@ class Bandeja {
     bandeja.setFriction(6);
     bandeja.setRotatable (false);
     bandeja.setDamping (0.5);
+    bandeja.setForce(1, 1);
     bandeja.attachImage(loadImage("trampolin2.png")); //Cargar imagen
   
   }
