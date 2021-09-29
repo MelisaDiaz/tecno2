@@ -5,6 +5,6 @@ Trabajo práctico 2
 
 López Marilin 85183/7
 
-Díaz Melisa
+Díaz Melisa 85070/9
 
-Reynoso Jorgelina
+Reynoso Jorgelina 85059/4
