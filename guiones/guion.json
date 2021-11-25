@@ -1,0 +1,126 @@
+{   "audio":"audios/ElPrincipito.mp3",
+    "modelo":"modelos/ElPrincipito.glb",
+    "fondo":"rgb(0,0,0)",
+    "data" :
+        [
+           {
+                "tiempo":"00:00",
+                "duracion":3000,
+                "camara":"Camara01-A",
+                "target":"Target01",
+                "nombre":"Planeta de Lejos"
+           },
+           {
+               "tiempo":"00:03",
+               "duracion":15000,
+               "camara":"Camara01-B",
+               "target":"Target01",
+               "nombre":"Planeta de cerca"
+          },
+          {
+               "tiempo":"00:18",
+               "duracion":20000,
+               "camara":"Camara02-A",
+               "target":"Target02",
+               "nombre":"Semillas"
+          },
+          {
+               "tiempo":"00:38",
+               "duracion":15000,
+               "camara":"Camara02-B",
+               "target":"Target02",
+               "nombre":"Semillas de cerca"
+          },
+          {
+               "tiempo":"00:50",
+               "duracion":14000,
+               "camara":"Camara03",
+               "target":"Target03",
+               "nombre":"Baobabs"
+          },
+          {
+               "tiempo":"01:04",
+               "duracion":10000,
+               "camara":"Camara04-A",
+               "target":"Target0401",
+               "nombre":"Volcan activo 1"
+          },
+          {
+               "tiempo":"01:14",
+               "duracion":6000,
+               "camara":"Camara04-A",
+               "target":"Target0402",
+               "nombre":"Volcan activo 2"
+          },
+          {
+               "tiempo":"01:20",
+               "duracion":15000,
+               "camara":"Camara04-B",
+               "target":"Target0403",
+               "nombre":"Volcan extinguido"
+          },
+          {
+               "tiempo":"01:35",
+               "duracion":30000,
+               "camara":"Camara05",
+               "target":"Target05",
+               "nombre":"Flores"
+          },
+          {
+               "tiempo":"02:05",
+               "duracion":10000,
+               "camara":"Camara06-A",
+               "target":"Target06",
+               "nombre":"Rosa"
+          },
+          {
+               "tiempo":"02:15",
+               "duracion":20000,
+               "camara":"Camara06-B",
+               "target":"Target06",
+               "nombre":"Rosa de cerca"
+          },
+          {
+               "tiempo":"02:35",
+               "duracion":20000,
+               "camara":"Camara07",
+               "target":"Target07",
+               "nombre":"Estrellas"
+          },
+          {
+               "tiempo":"02:55",
+               "duracion":20000,
+               "camara":"Camara08-A",
+               "target":"Target08",
+               "nombre":"Principito camara 1"
+          },
+          {
+               "tiempo":"03:15",
+               "duracion":5000,
+               "camara":"Camara08-B",
+               "target":"Target08",
+               "nombre":"Principito camara 2"
+          },
+          {
+               "tiempo":"03:20",
+               "duracion":5000,
+               "camara":"Camara08-C",
+               "target":"Target06",
+               "nombre":"Rosa"
+          },
+          {
+               "tiempo":"03:25",
+               "duracion":10000,
+               "camara":"Camara08-D",
+               "target":"Target08",
+               "nombre":"Principito y rosa"
+          },
+          {
+               "tiempo":"03:35",
+               "duracion":17000,
+               "camara":"Camara09",
+               "target":"Target08",
+               "nombre":"Planeta de lejos"
+          }
+      ]
+}
